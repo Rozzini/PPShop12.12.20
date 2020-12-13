@@ -8,7 +8,7 @@ namespace PProjectShop.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         public string ProductName { get; set; }
 
@@ -18,7 +18,7 @@ namespace PProjectShop.Models
 
         public decimal ProductPrice { get; set; }
 
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
     }

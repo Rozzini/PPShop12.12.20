@@ -15,7 +15,7 @@ namespace PProjectShop.Models
 
     public class Order
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
         //public ICollection<Product> OrderedProducts { get; set; }
 

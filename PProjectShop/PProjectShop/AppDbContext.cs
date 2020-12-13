@@ -22,14 +22,17 @@ namespace PProjectShop
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseNpgsql().UseSnakeCaseNamingConvention();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>().Property(x => x.CategoryId).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Product>().Property(x => x.ProductId).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Client>().Property(x => x.ClientId).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Order>().Property(x => x.OrderId).ValueGeneratedOnAdd();
             modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
-
             modelBuilder.Entity<Product>().HasOne(p => p.Category).WithMany().HasForeignKey(p => p.CategoryId);
         }
 
