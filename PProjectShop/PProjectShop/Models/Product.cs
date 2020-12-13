@@ -18,9 +18,8 @@ namespace PProjectShop.Models
 
         public decimal ProductPrice { get; set; }
 
-        [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
 
-        public virtual Category Categories { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

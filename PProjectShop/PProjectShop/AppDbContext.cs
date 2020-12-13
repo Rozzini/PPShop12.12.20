@@ -29,6 +29,8 @@ namespace PProjectShop
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
+
+            modelBuilder.Entity<Product>().HasOne(p => p.Category).WithMany().HasForeignKey(p => p.CategoryId);
         }
 
 
