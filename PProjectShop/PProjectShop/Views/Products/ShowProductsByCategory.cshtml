@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "ShowProductsByCategory";
+}
+
+<h1>Products</h1>
+
+<div class-"row mt-5 mb-2">
+
+    @{
+        foreach (var Product in Model.ProductsList)
+        {
+            <div class="cars">
+                <img class="img-thumbnail" src="@Product.ProductImage" width="196" height="196" alt="@Product.ProductName" />
+                <h2>Model: @Product.ProductName</h2>
+                <p>@Product.ProductDescription</p>
+                <p>@Product.ProductPrice</p>
+
+            </div>
+        }
+    }
+</div>
+
