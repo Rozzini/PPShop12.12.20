@@ -17,7 +17,7 @@ namespace PProjectShop.Repository
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return appDbContext.Categories;
+            return appDbContext.Categories.ToList();
         }
 
         public void CreateCategory(Category category)
@@ -54,7 +54,7 @@ namespace PProjectShop.Repository
 
         public IEnumerable<Product> GetProductsByCategory(Guid Id)
         {
-            return appDbContext.Products.Where(x => x.CategoryId == Id);
+            return appDbContext.Products.Where(x => x.CategoryId == Id).ToList();
         }
 
         public void CreateProduct(Product product)
