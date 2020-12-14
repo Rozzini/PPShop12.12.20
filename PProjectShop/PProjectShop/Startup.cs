@@ -26,7 +26,7 @@ namespace PProjectShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();

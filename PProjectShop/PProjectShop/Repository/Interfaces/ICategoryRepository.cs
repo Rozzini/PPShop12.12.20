@@ -14,6 +14,6 @@ namespace PProjectShop.Repository.Interfaces
 
         void SaveCategory(Category category);
 
-        void DeleteCategory(int CategoryId);
+        void DeleteCategory(Guid CategoryId);
     }
 }

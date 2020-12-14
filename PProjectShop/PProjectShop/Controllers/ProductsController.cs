@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PProjectShop.Models;
 using PProjectShop.Repository.Interfaces;
 using PProjectShop.ViewModels;
 using System;
@@ -22,16 +23,21 @@ namespace PProjectShop.Controllers
         [HttpGet]
         public IActionResult ShowAllProducts()
         {
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetAllProducts();
+            var products = new ProductsViewModel
+            {
+                ProductsList = _productRepository.GetAllProducts()
+            };
+           
             return View(products);
         }
 
         [HttpGet]
-        public IActionResult ShowProductsByCategory(int id)
+        public IActionResult ShowProductsByCategory(Guid id)
         {
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetProductsByCategory(id);
+            var products = new ProductsViewModel
+            {
+                ProductsList = _productRepository.GetProductsByCategory(id)
+            };
             return View(products);
         }
     }

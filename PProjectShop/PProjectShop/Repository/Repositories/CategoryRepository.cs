@@ -23,10 +23,11 @@ namespace PProjectShop.Repository.Repositories
 
         public void CreateCategory(Category category)
         {
-            throw new NotImplementedException();
+            appDbContext.Categories.Add(category);
+            appDbContext.SaveChanges();
         }
 
-        public void DeleteCategory(int CategoryId)
+        public void DeleteCategory(Guid CategoryId)
         {
             throw new NotImplementedException();
         }
