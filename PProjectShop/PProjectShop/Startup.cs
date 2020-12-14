@@ -10,8 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PProjectShop.Repository;
-using PProjectShop.Repository.Interfaces;
-using PProjectShop.Repository.Repositories;
 
 namespace PProjectShop
 {
