@@ -33,8 +33,6 @@ namespace PProjectShop
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
-            // modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
-
         }
 
 
