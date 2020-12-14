@@ -23,21 +23,12 @@ namespace PProjectShop.Controllers
         [HttpGet]
         public IEnumerable<Product> ShowAllProducts()
         {
-            //var products = new ProductsViewModel
-            //{
-            //    ProductsList = _generalDataAccessRepository.GetAllProducts()
-            //};
-
             return _generalDataAccessRepository.GetAllProducts();
         }
 
         [HttpGet]
         public IEnumerable<Product> ShowProductsByCategory(Guid id)
         {
-            //var products = new ProductsViewModel
-            //{
-            //    ProductsList = _generalDataAccessRepository.GetProductsByCategory(id)
-            //};
             return _generalDataAccessRepository.GetProductsByCategory(id);
         }
     }
