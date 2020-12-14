@@ -23,23 +23,21 @@ namespace PProjectShop.Controllers
         [HttpGet]
         public IActionResult ShowAllProducts()
         {
-            Category category = new Category()
+            var products = new ProductsViewModel
             {
-                CategoryName = "asd",
-                CategoryDescription="asdgsfg"
+                ProductsList = _productRepository.GetAllProducts()
             };
-
-            _categoryRepository.CreateCategory(category); 
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetAllProducts();
+           
             return View(products);
         }
 
         [HttpGet]
         public IActionResult ShowProductsByCategory(Guid id)
         {
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetProductsByCategory(id);
+            var products = new ProductsViewModel
+            {
+                ProductsList = _productRepository.GetProductsByCategory(id)
+            };
             return View(products);
         }
     }

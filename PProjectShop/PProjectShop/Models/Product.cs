@@ -8,7 +8,7 @@ namespace PProjectShop.Models
 {
     public class Product
     {
-        public Guid ProductId { get; set; }
+        public Guid Id { get; set; }
 
         public string ProductName { get; set; }
 
