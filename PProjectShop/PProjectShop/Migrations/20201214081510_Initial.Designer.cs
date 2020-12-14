@@ -2,23 +2,23 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-
 using PProjectShop;
 
 namespace PProjectShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201214081510_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-
                 .HasAnnotation("ProductVersion", "5.0.1");
 
             modelBuilder.Entity("PProjectShop.Models.Category", b =>
@@ -40,7 +40,6 @@ namespace PProjectShop.Migrations
                         .HasName("pk_categories");
 
                     b.ToTable("categories");
-
                 });
 
             modelBuilder.Entity("PProjectShop.Models.Client", b =>
@@ -58,7 +57,6 @@ namespace PProjectShop.Migrations
                         .HasName("pk_clients");
 
                     b.ToTable("clients");
-
                 });
 
             modelBuilder.Entity("PProjectShop.Models.Order", b =>
@@ -76,7 +74,6 @@ namespace PProjectShop.Migrations
                         .HasName("pk_orders");
 
                     b.ToTable("orders");
-
                 });
 
             modelBuilder.Entity("PProjectShop.Models.Product", b =>
@@ -120,7 +117,6 @@ namespace PProjectShop.Migrations
                         .HasDatabaseName("ix_products_category_id1");
 
                     b.ToTable("products");
-
                 });
 
             modelBuilder.Entity("PProjectShop.Models.Product", b =>
@@ -138,7 +134,6 @@ namespace PProjectShop.Migrations
                         .HasConstraintName("fk_products_categories_category_id1");
 
                     b.Navigation("Category");
-
                 });
 
             modelBuilder.Entity("PProjectShop.Models.Category", b =>

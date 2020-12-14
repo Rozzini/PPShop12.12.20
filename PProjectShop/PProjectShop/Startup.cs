@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PProjectShop.Repository.Interfaces;
-using PProjectShop.Repository.Repositories;
+using PProjectShop.Repository;
+
 
 namespace PProjectShop
 {
@@ -26,10 +26,9 @@ namespace PProjectShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<GeneralDataAccessRepository>();
+          
             services.AddControllersWithViews();
         }
 

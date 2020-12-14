@@ -8,7 +8,8 @@ namespace PProjectShop.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        public Guid Id { get; set; }
+
 
         public string ProductName { get; set; }
 
@@ -18,9 +19,9 @@ namespace PProjectShop.Models
 
         public decimal ProductPrice { get; set; }
 
-        [ForeignKey("CategoryId")]
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
-        public virtual Category Categories { get; set; }
+        public virtual Category Category { get; set; }
+
     }
 }

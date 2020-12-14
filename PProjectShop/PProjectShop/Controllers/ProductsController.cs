@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PProjectShop.Repository.Interfaces;
+using PProjectShop.Models;
+using PProjectShop.Repository;
+
 using PProjectShop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,28 +12,33 @@ namespace PProjectShop.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IProductRepository _productRepository;
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly GeneralDataAccessRepository _generalDataAccessRepository;
 
-        public ProductsController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductsController(GeneralDataAccessRepository generalDataAccessRepository)
         {
-            _productRepository = productRepository;
-            _categoryRepository = categoryRepository;
+            _generalDataAccessRepository = generalDataAccessRepository;
+
         }
 
         [HttpGet]
         public IActionResult ShowAllProducts()
         {
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetAllProducts();
+            var products = new ProductsViewModel
+            {
+                ProductsList = _generalDataAccessRepository.GetAllProducts()
+            };
+          
             return View(products);
         }
 
         [HttpGet]
-        public IActionResult ShowProductsByCategory(int id)
+        public IActionResult ShowProductsByCategory(Guid id)
         {
-            ProductsViewModel products = new ProductsViewModel();
-            products.ProductsList = _productRepository.GetProductsByCategory(id);
+            var products = new ProductsViewModel
+            {
+                ProductsList = _generalDataAccessRepository.GetProductsByCategory(id)
+            };
+
             return View(products);
         }
     }

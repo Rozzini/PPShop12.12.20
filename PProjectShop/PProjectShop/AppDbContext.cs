@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PProjectShop.Configuration;
 using PProjectShop.Models;
 using System;
 using System.Collections.Generic;
@@ -22,13 +23,19 @@ namespace PProjectShop
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseNpgsql().UseSnakeCaseNamingConvention();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            // modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
+
+
         }
 
 
