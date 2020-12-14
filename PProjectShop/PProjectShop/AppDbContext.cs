@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PProjectShop.Configuration;
 using PProjectShop.Models;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,12 @@ namespace PProjectShop
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().Property(x => x.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Product>().Property(x => x.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Client>().Property(x => x.Id).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Order>().Property(x => x.Id).ValueGeneratedOnAdd();
-           // modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
-            modelBuilder.Entity<Product>().HasOne(p => p.Category).WithMany().HasForeignKey(p => p.CategoryId);
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            // modelBuilder.Entity<Order>().OwnsOne(x => x.BillingAddress);
+
         }
 
 
