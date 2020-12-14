@@ -33,6 +33,7 @@ namespace PProjectShop.Models
 
         //public BillingAddress BillingAddress { get; set; }
 
+
         public Statuses Status { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace PProjectShop.Models
     {
         public Guid Id { get; set; }
 
+
         public string ClientName { get; set; }
     }
 }
