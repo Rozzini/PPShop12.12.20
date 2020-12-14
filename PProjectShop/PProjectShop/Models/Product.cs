@@ -10,6 +10,7 @@ namespace PProjectShop.Models
     {
         public Guid Id { get; set; }
 
+
         public string ProductName { get; set; }
 
         public string ProductDescription { get; set; }
@@ -21,5 +22,6 @@ namespace PProjectShop.Models
         public Guid CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+
     }
 }

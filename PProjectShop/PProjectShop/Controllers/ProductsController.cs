@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PProjectShop.Models;
 using PProjectShop.Repository;
+
 using PProjectShop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace PProjectShop.Controllers
         public ProductsController(GeneralDataAccessRepository generalDataAccessRepository)
         {
             _generalDataAccessRepository = generalDataAccessRepository;
+
         }
 
         [HttpGet]
@@ -25,7 +27,7 @@ namespace PProjectShop.Controllers
             {
                 ProductsList = _generalDataAccessRepository.GetAllProducts()
             };
-           
+          
             return View(products);
         }
 
@@ -36,6 +38,7 @@ namespace PProjectShop.Controllers
             {
                 ProductsList = _generalDataAccessRepository.GetProductsByCategory(id)
             };
+
             return View(products);
         }
     }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PProjectShop.Repository;
 
+
 namespace PProjectShop
 {
     public class Startup
@@ -26,6 +27,7 @@ namespace PProjectShop
         {
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<GeneralDataAccessRepository>();
+          
             services.AddControllersWithViews();
         }
 
