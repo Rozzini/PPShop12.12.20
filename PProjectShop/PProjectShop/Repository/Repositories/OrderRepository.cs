@@ -24,7 +24,7 @@ namespace PProjectShop.Repository.Repositories
 
         public Order GetOrder(int orderId)
         {
-            return appDbContext.Orders.FirstOrDefault(x => x.OrderId == orderId);
+            return appDbContext.Orders.FirstOrDefault(x => x.Id == orderId);
         }
     }
 }
