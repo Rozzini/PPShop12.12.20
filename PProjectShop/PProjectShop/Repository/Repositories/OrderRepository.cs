@@ -22,7 +22,7 @@ namespace PProjectShop.Repository.Repositories
             appDbContext.SaveChanges();
         }
 
-        public Order GetOrder(int orderId)
+        public Order GetOrder(Guid orderId)
         {
             return appDbContext.Orders.FirstOrDefault(x => x.Id == orderId);
         }
