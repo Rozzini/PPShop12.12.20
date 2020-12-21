@@ -23,6 +23,26 @@ namespace PProjectShop.Controllers
         [HttpGet]
         public IEnumerable<Product> ShowAllProducts()
         {
+            //var category = new Category
+            //{
+            //    CategoryName = "aaa",
+            //    CategoryDescription = "aaa",
+            //};
+
+            //_generalDataAccessRepository.CreateCategory(category);
+
+            //Guid catId = _generalDataAccessRepository.GetCategoryId(category.CategoryName);
+            //var product = new Product
+            //{
+            //    ProductName = "IIIII",
+            //    ProductDescription = "asdasdasd",
+            //    ProductPrice = 800,
+            //    ProductImage = "~/images/IPhone1.jfif",
+            //    CategoryId = catId
+            //};
+
+            //_generalDataAccessRepository.CreateProduct(product);
+
             return _generalDataAccessRepository.GetAllProducts();
         }
 
