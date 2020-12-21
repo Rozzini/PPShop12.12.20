@@ -42,6 +42,11 @@ namespace PProjectShop.Repository
             appDbContext.SaveChanges();
         }
 
+        public Guid GetCategoryId (string categoryName)
+        {
+            Category category = appDbContext.Categories.FirstOrDefault(x => x.CategoryName == categoryName);
+            return category.Id;
+        }
         public Order GetOrder(Guid orderId)
         {
             return appDbContext.Orders.FirstOrDefault(x => x.Id == orderId);

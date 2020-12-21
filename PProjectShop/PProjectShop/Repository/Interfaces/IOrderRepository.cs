@@ -8,7 +8,7 @@ namespace PProjectShop.Repository.Interfaces
 {
     public interface IOrderRepository
     {
-        Order GetOrder(int orderId);
+        Order GetOrder(Guid orderId);
 
         void CreateOrder(Order order);
     }

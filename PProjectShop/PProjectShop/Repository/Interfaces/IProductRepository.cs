@@ -10,7 +10,7 @@ namespace PProjectShop.Repository.Interfaces
     {
         IEnumerable<Product> GetAllProducts();
 
-        IEnumerable<Product> GetProductsByCategory(int Id);
+        IEnumerable<Product> GetProductsByCategory(Guid Id);
 
         void CreateProduct(Product product);
 
