@@ -1,43 +1,54 @@
+import Loader from './Loader';
 import React from 'react';
+import useProductService from '../services/useProductService';
 
-interface Props {
-    name: string;
-    description: string;
-    image: string;
-    price: any;
-    category: any;
-}
+const ProductCard: React.FC<{}> = ({ }) => {
+  const service = useProductService();
 
-const ProductCard: React.FC<Props> = ({
-    name,
-    description,
-    image,
-    price,
-  }) => (
-    <div className='container'>
-    <div className="row">
-    <div className='col-md-12'>
-        <div className="main">
-        <div className="image">  
-            <h1>{name}</h1>
-            <h1>{price}</h1>
-            <img src={image} />
-        </div> 
-        <div className='header'>
-            <a>
-                <i className='fa fa-2x fa-caret-up' />
-            </a>
+  return (
+    <div >
+      {/* <div  onClick={onClose} /> */}
+
+      {service.status === 'loading' && <Loader />}
+
+      {service.status === 'loaded' && (
+        <div className="product">
+          <h2>{service.payload.results}</h2>
+
+          {/* <div className="price">
+            {!!service.payload.price &&
+            parseInt(service.payload.price) ? (
+              <>
+                {new Intl.NumberFormat('en-US').format(
+                  parseInt(service.payload.price)
+                )}{' '}
+                UAH
+              </>
+            ) : (
+              'Call us for price'
+            )}
+          </div> */}
+
+          <div className="product-info">
+            <div className="product-info-item">
+              <div className="label">description</div>
+              <div className="data">{service.payload.results}</div>
+            </div>
+            <div className="product-image">
+              <div className="label">image</div>
+              <div className="data">{service.payload.results}</div>
+            </div>
+          </div>
         </div>
-        <div className='description'>
-            <p>{description}</p>
+      )}
+
+      {service.status === 'error' && (
+        <div className="product">
+          Error, something weird happened.
         </div>
-      <div className='extra'>
-        <span>Submitted by:</span>
-      </div>
-      </div>
+      )}
     </div>
-    </div>
-  </div>
   );
+};
 
-  export default ProductCard;
+export default ProductCard;

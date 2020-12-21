@@ -29,6 +29,8 @@ namespace PProjectShop
             services.AddScoped<GeneralDataAccessRepository>();
           
             services.AddControllersWithViews();
+
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,6 +46,8 @@ namespace PProjectShop
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseCors(builder => builder.AllowAnyOrigin());
 
             app.UseRouting();
 
