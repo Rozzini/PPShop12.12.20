@@ -54,7 +54,7 @@ namespace PProjectShop.Repository
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return appDbContext.Products;
+            return appDbContext.Products.ToArray();
         }
 
         public IEnumerable<Product> GetProductsByCategory(Guid Id)
