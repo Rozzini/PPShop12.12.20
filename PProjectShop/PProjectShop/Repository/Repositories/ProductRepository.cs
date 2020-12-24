@@ -21,7 +21,7 @@ namespace PProjectShop.Repository.Repositories
             return appDbContext.Products;
         }
 
-        public IEnumerable<Product> GetProductsByCategory(int Id)
+        public IEnumerable<Product> GetProductsByCategory(Guid Id)
         {
             return appDbContext.Products.Where(x => x.CategoryId == Id);
         }
