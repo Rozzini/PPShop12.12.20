@@ -1,7 +1,6 @@
+import {IProduct} from "../models"
 import axios from "axios";
 
-import {IProduct} from "../models"
-
-export const fetchAllProducts = async (func: any): Promise<IProduct[]> => {
+export const fetchAllProducts = async (onSuccess: (products: IProduct[]) => void) => {
     return axios.get<IProduct[]> ("https://localhost:5001/api/ShowAllProducts")
-    .then(response => {return func(response.data)});}
+    .then(response => {return onSuccess(response.data)});}
