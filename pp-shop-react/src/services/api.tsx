@@ -1,4 +1,4 @@
-import axios, { CancelTokenSource } from "axios";
+import axios from "axios";
 
 import {IProduct} from "../models"
 

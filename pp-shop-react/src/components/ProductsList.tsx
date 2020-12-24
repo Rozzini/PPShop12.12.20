@@ -1,17 +1,12 @@
-import * as styles from './ProductList.module.css';
-
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import {IProduct} from "../models"
 
-type Props = {
-products: IProduct[];
-};
+type Props = { products: IProduct[]; };
 
 export const ProductsList: React.FC<Props> = ({products}) => {
 
   return (
-    
     <div className="App">
       <ul className="posts">
         {products.map((products) => (

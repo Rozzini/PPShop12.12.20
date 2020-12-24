@@ -9,12 +9,8 @@ const defaultProps:IProduct[] = [];
 
 function App() {
 const [products, setProducts] = React.useState<IProduct[]>(defaultProps) 
-const [loading, setLoading]: [boolean, (loading: boolean) => void] = React.useState<boolean>(true);
-const [error, setError]: [string, (error: string) => void] = React.useState("");
 
-React.useEffect(() => { 
-  fetchAllProducts(setProducts);
-}, [])
+React.useEffect(() => { fetchAllProducts(setProducts);}, [])
 
 return (
 <div>
