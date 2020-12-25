@@ -10,8 +10,8 @@ using PProjectShop;
 namespace PProjectShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201214081510_Initial")]
-    partial class Initial
+    [Migration("20201225173950_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
