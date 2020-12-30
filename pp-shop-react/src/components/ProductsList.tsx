@@ -13,6 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 export const ProductsList: React.FC<Props> = ({products}) => {
   const classes = useStyles();
   return (
@@ -37,6 +38,9 @@ export const ProductsList: React.FC<Props> = ({products}) => {
           </Typography>
           <Typography>
             {product.productPrice}
+          </Typography>
+          <Typography>
+            {product.categoryId}
           </Typography>
         </CardContent>
       </CardActionArea>

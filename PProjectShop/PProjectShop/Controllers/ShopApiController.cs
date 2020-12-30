@@ -21,15 +21,29 @@ namespace PProjectShop.Controllers
             _generalDataAccessRepository = generalDataAccessRepository;
         }
         [HttpGet]
-        public IEnumerable<Product> ShowAllProducts()
+        public IEnumerable<Product> GetAllProducts()
         {
             return _generalDataAccessRepository.GetAllProducts();
         }
 
-        [HttpGet]
-        public IEnumerable<Product> ShowProductsByCategory(Guid id)
+        public IEnumerable<Category> GetAllCategories()
         {
+            return _generalDataAccessRepository.GetAllCategories();
+        }
+
+        [HttpGet]
+        public IEnumerable<Product> ShowProductsByCategory(string categoryName)
+        {
+            Guid id = _generalDataAccessRepository.GetCategoryId(categoryName);
             return _generalDataAccessRepository.GetProductsByCategory(id);
         }
+
+        //[HttpPost]
+
+        //public IActionResult CreateProduct(Product product)
+        //{
+        //     _generalDataAccessRepository.CreateProduct(product);
+            
+        //}
     }
 }
