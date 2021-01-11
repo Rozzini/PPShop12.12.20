@@ -7,3 +7,10 @@ export interface IProduct {
     categoryId: string;
     category: any;
   }
+
+export interface ICategory {
+    id: any;
+    categoryName: string;
+    categoryDescription: string;
+    products: any;
+}

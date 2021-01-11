@@ -1,27 +1,57 @@
-import * as styles from './ProductList.module.css';
-
-import React, {useEffect, useState} from 'react';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, makeStyles } from '@material-ui/core';
 
 import {IProduct} from "../models"
+import React from 'react';
 
 type Props = {
 products: IProduct[];
 };
 
-export const ProductsList: React.FC<Props> = ({products}) => {
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+});
 
+
+export const ProductsList: React.FC<Props> = ({products}) => {
+  const classes = useStyles();
   return (
-    
-    <div className="App">
-      <ul className="posts">
-        {products.map((products) => (
-          <li key={products.id}>
-            <h3>{products.productName}</h3>
-            <p>{products.productDescription}</p>
-            <h2>{products.productPrice}</h2>
-          </li>
-        ))}
-      </ul>
+    <div>
+      {products.map((product) => (
+        <li key={product.id}>
+      <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt={product.productName}
+          height="140"
+          image={product.productImage}
+          title={product.productName}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {product.productName}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+           {product.productDescription}
+          </Typography>
+          <Typography>
+            {product.productPrice}
+          </Typography>
+          <Typography>
+            {product.categoryId}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Order
+        </Button>
+      </CardActions>
+    </Card>
+    </li>
+     ))}
     </div>
   );
 }
