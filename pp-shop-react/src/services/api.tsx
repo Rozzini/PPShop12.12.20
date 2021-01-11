@@ -11,6 +11,5 @@ export const fetchAllCategories = async (onSuccess: (categories: ICategory[]) =>
     .then(response => {return onSuccess(response.data)});}
 
 export const fetchProductsByCategory = async (categoryName: string, onSuccess: (products: IProduct[]) => void) => {
-    const fetchUrl = "https://localhost:5001/api/ShowProductsByCategory?categoryName=" + categoryName;
-    return axios.get<IProduct[]> (fetchUrl)
+    return axios.get<IProduct[]> (`https://localhost:5001/api/ShowProductsByCategory?categoryName=${categoryName}`)
     .then(response => {return onSuccess(response.data)});}
