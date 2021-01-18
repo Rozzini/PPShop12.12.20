@@ -1,5 +1,5 @@
 import {ICategory, IProduct} from "./models"
-import React, { useCallback, useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {fetchAllCategories, fetchAllProducts, fetchProductsByCategory} from './services/api';
 
 import {ProductsList} from "./components/ProductsList"
@@ -18,26 +18,28 @@ const [categories, setCategories] = React.useState<ICategory[]>(defaultCategoryP
 useEffect(() => { 
   fetchAllCategories(setCategories);}, [])
 
-const fetchAllProdutsRequest = useCallback(() => {
+const fetchAllProdutsRequest = () => {
   fetchAllProducts(setProducts);
-}, []);
+};
 
-const fetchProdutsByCategoryRequest = useCallback((category: string) => (event: any)  => {
-  fetchProductsByCategory(category, setProducts);
-}, []);
+const fetchProdutsByCategoryRequest = (category: string)  => {
+  fetchProductsByCategory(category)
+  .then(products => setProducts(products.data));
+};
 
 const CategoriesButtons: React.FC<Props> = ({categoriesProps}) => {
   return (
     <>
     {categoriesProps.map((category) => (
-    <button className='start' onClick={fetchProdutsByCategoryRequest(category.categoryName)}>
+    <button className='start' 
+      onClick={() => fetchProdutsByCategoryRequest(category.id)}>
         {category.categoryName}
+        {category.id}
     </button>
     ))}
     </>
   );
 }
-
 
 return (
   <>
