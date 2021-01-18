@@ -32,10 +32,9 @@ namespace PProjectShop.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> ShowProductsByCategory(string categoryName)
+        public IEnumerable<Product> ShowProductsByCategory(Guid categoryId)
         {
-            Guid id = _generalDataAccessRepository.GetCategoryId(categoryName);
-            return _generalDataAccessRepository.GetProductsByCategory(id);
+            return _generalDataAccessRepository.GetProductsByCategory(categoryId);
         }
 
         [HttpPost]
