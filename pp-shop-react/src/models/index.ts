@@ -1,16 +1,16 @@
 export interface IProduct {
-    id: any;
+    id: string;
     productName: string;
     productDescription: string;
     productImage: string;
-    productPrice: any;
+    productPrice: number;
     categoryId: string;
-    category: any;
+    ICategory: null;
   }
 
 export interface ICategory {
-    id: any;
+    id: string;
     categoryName: string;
     categoryDescription: string;
-    products: any;
+    IProduct: null[];
 }

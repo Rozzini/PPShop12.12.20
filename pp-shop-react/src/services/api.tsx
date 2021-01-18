@@ -10,6 +10,6 @@ export const fetchAllCategories = async (onSuccess: (categories: ICategory[]) =>
     return axios.get<ICategory[]> ("https://localhost:5001/api/GetAllCategories")
     .then(response => {return onSuccess(response.data)});}
 
-export const fetchProductsByCategory = async (categoryName: string, onSuccess: (products: IProduct[]) => void) => {
-    return axios.get<IProduct[]> (`https://localhost:5001/api/ShowProductsByCategory?categoryName=${categoryName}`)
-    .then(response => {return onSuccess(response.data)});}
+export const fetchProductsByCategory = (categoryId: string) => {
+    return axios.get<IProduct[]> (`https://localhost:5001/api/ShowProductsByCategory?categoryId=${categoryId}`)
+}
