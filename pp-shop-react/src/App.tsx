@@ -34,7 +34,6 @@ const CategoriesButtons: React.FC<Props> = ({categoriesProps}) => {
     <button className='start' 
       onClick={() => fetchProdutsByCategoryRequest(category.id)}>
         {category.categoryName}
-        {category.id}
     </button>
     ))}
     </>
@@ -43,6 +42,7 @@ const CategoriesButtons: React.FC<Props> = ({categoriesProps}) => {
 
 return (
   <>
+  
       <button className='start' onClick={fetchAllProdutsRequest}>
         All products
       </button>
