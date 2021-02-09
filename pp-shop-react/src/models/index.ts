@@ -6,6 +6,7 @@ export interface IProduct {
     productPrice: number;
     categoryId: string;
     ICategory: null;
+    amount: number;
   }
 
 export interface ICategory {

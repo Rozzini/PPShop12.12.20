@@ -1659,6 +1659,13 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
+"@material-ui/icons@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+  integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/styles@^4.11.2":
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.11.2.tgz#e70558be3f41719e8c0d63c7a3c9ae163fdc84cb"
@@ -8453,6 +8460,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+match-sorter@^6.0.2:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/match-sorter/-/match-sorter-6.2.0.tgz#e3f29d4733ef835a0baccc7b9d291c07264985e8"
+  integrity sha512-yhmUTR5q6JP/ssR1L1y083Wp+C+TdR8LhYTxWI4IRgEUr8IXJu2mE6L3SwryCgX95/5J7qZdEg0G091sOxr1FQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    remove-accents "0.4.2"
+
 material-ui@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.20.2.tgz#5fc9b4b62b691d3b16c89d8e54597a0412b52c7d"
@@ -11058,6 +11073,14 @@ react-native@^0.63.4:
     use-subscription "^1.0.0"
     whatwg-fetch "^3.0.0"
 
+react-query@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.8.2.tgz#e2dac76b5d9b3465d854f4ca040a35ba4bcae1ae"
+  integrity sha512-Ha8+WZLIHOUkKhqE4+2RZZB03WvEWmNhN4WIIw3zWVCtR7blo2n2TXtu+d3YhaY1o6dt+sHT+J+zNV8IzR583w==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    match-sorter "^6.0.2"
+
 react-refresh@^0.4.0:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.3.tgz#966f1750c191672e76e16c2efa569150cc73ab53"
@@ -11389,6 +11412,11 @@ relateurl@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+remove-accents@0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/remove-accents/-/remove-accents-0.4.2.tgz#0a43d3aaae1e80db919e07ae254b285d9e1c7bb5"
+  integrity sha1-CkPTqq4egNuRngeuJUsoXZ4ce7U=
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
