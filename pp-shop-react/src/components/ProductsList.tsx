@@ -39,9 +39,6 @@ export const ProductsList: React.FC<Props> = ({products}) => {
           <Typography>
             {product.productPrice}
           </Typography>
-          <Typography>
-            {product.categoryId}
-          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
