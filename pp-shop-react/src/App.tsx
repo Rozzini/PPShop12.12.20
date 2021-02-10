@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid';
 import Item from './components/Item/Item';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {ProductsList} from "./components/ProductsList"
-import { useQuery } from 'react-query';
 import { useState } from 'react';
 
 const defaultProductsProps:IProduct[] = [];
