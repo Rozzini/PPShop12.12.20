@@ -15,3 +15,8 @@ export interface ICategory {
     categoryDescription: string;
     IProduct: null[];
 }
+
+export interface IOption {
+  value: string;
+  label: string;
+}

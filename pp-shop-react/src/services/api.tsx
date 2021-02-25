@@ -10,10 +10,18 @@ export const fetchAllCategories = async (onSuccess: (categories: ICategory[]) =>
     return axios.get<ICategory[]> ("https://localhost:5001/api/GetAllCategories")
     .then(response => {return onSuccess(response.data)});}
 
-export const fetchProductsByCategory = (categoryId: string) => {
+// export const fetchProductsByCategory = (categoryId: string) => {
+//     var uri = `https://localhost:5001/api/ShowProductsByCategory?categoryId=`;
+//     var params = `${categoryId}`;
+//     var res = uri + encodeURIComponent(params);
+//     return axios.get<IProduct[]> (res)
+// }
+
+export const fetchProductsByCategory = async (categoryId: string, onSuccess: (products: IProduct[], ) => void) => {
     var uri = `https://localhost:5001/api/ShowProductsByCategory?categoryId=`;
     var params = `${categoryId}`;
-    var res = uri + encodeURIComponent(params);
-    return axios.get<IProduct[]> (res)
-}
+    var result = uri + encodeURIComponent(params);
+    return axios.get<IProduct[]> (result)
+    .then(response => {return onSuccess(response.data)});}
+
 
