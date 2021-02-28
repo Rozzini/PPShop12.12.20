@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PProjectShop.Configuration
 {
-    public class ClientConfiguration : IEntityTypeConfiguration<Client>
+    public class ClientConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Client> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
         }

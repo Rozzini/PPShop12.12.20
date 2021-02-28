@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PProjectShop.Repository;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using PProjectShop.Services;
+using PProjectShop.Helpers;
 
 namespace PProjectShop
 {
@@ -35,6 +29,8 @@ namespace PProjectShop
            
             services.AddScoped<GeneralDataAccessRepository>();
 
+            services.AddScoped<IUserService, UserService>();
+
             var appSettingsSection = Configuration.GetSection("AppSettings");
 
         }
@@ -51,6 +47,7 @@ namespace PProjectShop
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseCors(x => x
@@ -62,6 +59,8 @@ namespace PProjectShop
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
